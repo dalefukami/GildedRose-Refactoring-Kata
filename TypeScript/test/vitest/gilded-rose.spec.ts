@@ -62,15 +62,15 @@ describe("Gilded Rose", () => {
   });
 
   test("'Sulfuras, Hand of Ragnaros', sell_in does not change", () => {
-    const rose = subject("Sulfuras, Hand of Ragnaros", 10, 50);
+    const rose = subject("Sulfuras, Hand of Ragnaros", 10, 80);
     const items = rose.updateQuality();
     expect(items[0].sellIn).toBe(10);
   });
 
   test("'Sulfuras, Hand of Ragnaros', quality does not change", () => {
-    const rose = subject("Sulfuras, Hand of Ragnaros", 10, 50);
+    const rose = subject("Sulfuras, Hand of Ragnaros", 10, 80);
     const items = rose.updateQuality();
-    expect(items[0].quality).toBe(50);
+    expect(items[0].quality).toBe(80);
   });
 
   test("Backstage passes increases in quality by 1 when sell_in is greater than 10", () => {
