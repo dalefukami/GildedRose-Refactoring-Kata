@@ -96,6 +96,18 @@ describe("Gilded Rose", () => {
     const items = rose.updateQuality();
     expect(items[0].quality).toBe(0);
   });
+
+  test("Backstage passes does not exceed 50", () => {
+    let rose = subject("Backstage passes to a TAFKAL80ETC concert", 11, 50);
+    let items = rose.updateQuality();
+    expect(items[0].quality).toBe(50);
+    rose = subject("Backstage passes to a TAFKAL80ETC concert", 10, 49);
+    items = rose.updateQuality();
+    expect(items[0].quality).toBe(50);
+    rose = subject("Backstage passes to a TAFKAL80ETC concert", 5, 48);
+    items = rose.updateQuality();
+    expect(items[0].quality).toBe(50);
+  });
 });
 
 function subject(name: string, sellIn: number, quality: number) {
